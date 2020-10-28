@@ -1,6 +1,10 @@
 setwd('G:/coursera_R/ProgrammingAssignment2')
 
+
+##makeCacheMatrix is a function which creates a special "matrix" object that can
+##cache its inverse for the input.
 makeCacheMatrix <- function(x = matrix()) {
+  
   inv <- NULL
   set <- function(y) {
     x <<- y
@@ -14,11 +18,13 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+##cacheSolve function computes the inverse of the matrix
+##returned by makeCacheMatrix above. If the inverse has already been calculated
+##and the matrix has not changed, then the cachesolve should retrieve the
+##inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  ## Return a matrix that is the inverse of 'x'
+
   inv <- x$getinv()
   if(!is.null(inv)) {
     message("getting cached result")
